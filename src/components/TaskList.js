@@ -8,7 +8,7 @@ function TaskList({ tasks }) {
     <div className="task-list">
       <h3>Task List</h3>
       {/* Ternary => if there are tasks in teh task list display "No tasks added yet." else map tasks to list of JSX  */}
-      tasks.length === 0 ? (
+      {tasks.length === 0 ? (
         <p>No tasks added yet.</p>
       ) : (
         tasks.map((task) => (
@@ -25,7 +25,7 @@ function TaskList({ tasks }) {
             </p>
           </div>
         ))
-      )
+      )}
     </div>
   );
 }
