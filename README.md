@@ -1,6 +1,4 @@
-[Group-3 Project: React Todo App](top)
-
-# Simple Instructions for the To-Do App Assessment
+# <a id="top"></a> Group-3 Project: React Todo App
 
 ## Create a Form to Add Task
 
@@ -38,4 +36,4 @@
 - [ ] Add a button or dropdown to sort tasks by their status (in-progress, completed, review).
 - [ ] Rearrange the displayed tasks accordingly.
 
-[To Top ⬆️](#top)
+<p align="center"><a href="#top">Back To Top ⬆️</a></p>
