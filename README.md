@@ -1,4 +1,4 @@
-# <a id="top"></a> Group-3 Project: React Todo App
+# <p align="center"><a href="https://github.com/JordyToke/group3-todo-app" id="top">Group-3 Project: React Todo App </a></p>
 
 ## Create a Form to Add Task
 
@@ -21,19 +21,24 @@
 - [ ] Store tasks as objects (e.g., { id, name, description, dueDate, assignedTo, status }) in an array.
 - [ ] Save this array in localStorage to keep tasks even when the page is refreshed.
 
-### Display Tasks on the Page
-
-- [ ] Loop through the saved tasks and show each task on the page.
-- [ ] Display these details: Name, Description, Due Date, Assigned To, Status.
-
 ### Edit and Remove Tasks
 
 - [ ] Add buttons for Edit and Delete next to each task.
 - [ ] Edit: Allow the user to change task details in the form.
 - [ ] Delete: Remove the task from the array and update the display.
 
- ### Sort Tasks by Status
+## Create a List to Display Tasks
+
+### Display Tasks on the Page
+
+- [ ] Loop through the saved tasks and show each task on the page.
+- [ ] Display these details: Name, Description, Due Date, Assigned To, Status.
+
+### Sort Tasks by Status
+
 - [ ] Add a button or dropdown to sort tasks by their status (in-progress, completed, review).
 - [ ] Rearrange the displayed tasks accordingly.
+
+___
 
 <p align="center"><a href="#top">Back To Top ⬆️</a></p>
