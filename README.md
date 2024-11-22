@@ -1,4 +1,4 @@
-# Simple Instructions for the To-Do App Assessment
+# [Simple Instructions for the To-Do App Assessment](top)
 
 ## Create a Form to Add Task
 
@@ -39,7 +39,6 @@
     <span class="field checkmark">Show an error message if any field is empty or invalid (e.g., "Name cannot be empty").</span>
   </li>
   <li>
-    Unique ID to Each Task:
     <input type="checkbox" />
     <span class="field checkmark">When a new task is added, generate a unique ID for it (e.g., using Date.now() or an incrementing number).</span>
   </li>
@@ -75,32 +74,32 @@
 
 <ul>
   <li>
-  <input type="checkbox" />
-  <span class="field checkmark">
-  Add buttons for Edit and Delete next to each task.
+    <input type="checkbox" />
+    <span class="field checkmark">Add buttons for Edit and Delete next to each task.</span>
+  </li>
   <li>
-  <input type="checkbox" />
-  <span class="field checkmark">
-  Edit: Allow the user to change task details in the form.
+    <input type="checkbox" />
+    <span class="field checkmark">Edit: Allow the user to change task details in the form.</span>
+  </li>
   <li>
-  <input type="checkbox" />
-  <span class="field checkmark">
-  Delete: Remove the task from the array and update the display.
+    <input type="checkbox" />
+    <span class="field checkmark">Delete: Remove the task from the array and update the display.</span>
+  </li>
   <li>
-  <input type="checkbox" />
-  <span class="field checkmark">
-  Sort Tasks by Status:
+    <input type="checkbox" />
+    <span class="field checkmark">Sort Tasks by Status:</span>
+  </li>
   <li>
-  <input type="checkbox" />
-  <span class="field checkmark">
-  Add a button or dropdown to sort tasks by their status (in-progress, completed, review).
+    <input type="checkbox" />
+    <span class="field checkmark">Add a button or dropdown to sort tasks by their status (in-progress, completed, review).</span>
+  </li>
   <li>
-  <input type="checkbox" />
-  <span class="field checkmark">
-  Rearrange the displayed tasks accordingly.
+    <input type="checkbox" />
+    <span class="field checkmark">Rearrange the displayed tasks accordingly.</span>
+  </li>
 </ul>
 
-[To Top ⬆️](#simple-instructions-for-the-to-do-app-assessment-top)
+[To Top ⬆️](#top)
 
 <style>
   .field {
