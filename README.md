@@ -1,70 +1,117 @@
-# Getting Started with Create React App
+# Simple Instructions for the To-Do App Assessment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Create a Form to Add Task
 
-## Available Scripts
+### Include input fields
 
-In the project directory, you can run:
+<ul>
+  <li>
+    <input type="checkbox" checked />
+    <span class="field checkmark">Name (text input)</span>
+  <li>
+  <li>
+    <input type="checkbox" />
+    <span class="field checkmark">Description (text area)</span>
+  </li>
+  <li>
+    <input type="checkbox" />
+    <span class="field checkmark">Due Date (date picker)</span>
+  </li>
+  <li>
+    <input type="checkbox" />
+    <span class="field checkmark">Assigned To (text input)</span>
+  </li>
+  <li>
+    <input type="checkbox" />
+    <span class="field checkmark">Status (dropdown with options: in-progress, completed, review)</span>
+  </li>
+</ul>
 
-### `npm start`
+### Validate Form Inputs
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<ul>
+  <li>
+    <input type="checkbox" />
+    <span class="field checkmark">Check that all fields are filled in before submission.</span>
+  </li>
+  <li>
+    <input type="checkbox" />
+    <span class="field checkmark">Show an error message if any field is empty or invalid (e.g., "Name cannot be empty").</span>
+  </li>
+  <li>
+    Unique ID to Each Task:
+    <input type="checkbox" />
+    <span class="field checkmark">When a new task is added, generate a unique ID for it (e.g., using Date.now() or an incrementing number).</span>
+  </li>
+</ul>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Save Tasks
 
-### `npm test`
+<ul>
+  <li>
+    <input type="checkbox" />
+    <span class="field checkmark">Store tasks as objects (e.g., { id, name, description, dueDate, assignedTo, status }) in an array.</span>
+  <li>
+  </li>
+    <input type="checkbox" />
+    <span class="field checkmark">Save this array in localStorage to keep tasks even when the page is refreshed.</span>
+  </li>
+</ul>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Display Tasks on the Page
 
-### `npm run build`
+<ul>
+  <li>
+    <input type="checkbox" />
+    <span class="field checkmark">Loop through the saved tasks and show each task on the page.</span>
+  </li>
+  <li>
+    <input type="checkbox" />
+    <span class="field checkmark">Display these details: Name, Description, Due Date, Assigned To, Status.</span>
+  </li>
+</ul>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Edit and Remove Tasks
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<ul>
+  <li>
+  <input type="checkbox" />
+  <span class="field checkmark">
+  Add buttons for Edit and Delete next to each task.
+  <li>
+  <input type="checkbox" />
+  <span class="field checkmark">
+  Edit: Allow the user to change task details in the form.
+  <li>
+  <input type="checkbox" />
+  <span class="field checkmark">
+  Delete: Remove the task from the array and update the display.
+  <li>
+  <input type="checkbox" />
+  <span class="field checkmark">
+  Sort Tasks by Status:
+  <li>
+  <input type="checkbox" />
+  <span class="field checkmark">
+  Add a button or dropdown to sort tasks by their status (in-progress, completed, review).
+  <li>
+  <input type="checkbox" />
+  <span class="field checkmark">
+  Rearrange the displayed tasks accordingly.
+</ul>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[To Top ⬆️](#simple-instructions-for-the-to-do-app-assessment-top)
 
-### `npm run eject`
+<style>
+  .field {
+    background-color: gray;
+  }
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  input:checked ~ .checkmark {
+    background-color: green;
+  }
+  
+  ul {
+    list-style: none;
+  }
+</style>
