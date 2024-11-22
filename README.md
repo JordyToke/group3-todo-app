@@ -106,6 +106,7 @@
 <style>
   .field {
     background-color: gray;
+    border-radius: 6px;
   }
 
   input:checked ~ .checkmark {
