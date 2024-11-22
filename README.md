@@ -1,4 +1,6 @@
-# [Simple Instructions for the To-Do App Assessment](top)
+[Group-3 Project: React Todo App](top)
+
+# Simple Instructions for the To-Do App Assessment
 
 ## Create a Form to Add Task
 
