@@ -1,5 +1,9 @@
 # <p align="center"><a href="https://github.com/JordyToke/group3-todo-app" id="top">Group-3 Project: React Todo App </a></p>
 
+## Getting Started
+
+After cloning the repo if you have any immediate issues make sure to try running `npm install` in case any packages or dependencies have been updated.
+
 ## Create a Form to Add Task
 
 ### Create input fields
@@ -16,12 +20,12 @@
 - [ ] Show an error message if any field is empty or invalid (e.g., "Name cannot be empty").
 - [ ] When a new task is added, generate a unique ID for it (e.g., using Date.now() or an incrementing number).
 
-### Save Tasks
+## Save Tasks
 
 - [ ] Store tasks as objects (e.g., { id, name, description, dueDate, assignedTo, status }) in an array.
 - [ ] Save this array in localStorage to keep tasks even when the page is refreshed.
 
-### Edit and Remove Tasks
+## Edit and Remove Tasks
 
 - [ ] Add buttons for Edit and Delete next to each task.
 - [ ] Edit: Allow the user to change task details in the form.
