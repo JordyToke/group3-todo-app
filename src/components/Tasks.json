@@ -1,0 +1,23 @@
+{
+  {
+    "name": "Create Input Fields",
+    "description": " Add teh following fields to the task form: Name (text input), Description (text area), Due Date (date picker), Assigned To (text input), Status (dropdown with options: in-progress, completed, review)",
+    "due": "24/11/2024",
+    "assigned": "Teagan, Yong",
+    "status": "in-progress",
+  },
+  {
+    "name": "Display Tasks",
+    "description": "Format and display tasks on the page",
+    "due": "24/11/2024",
+    "assigned": "Jordy",
+    "status": "in-progress",
+  },
+  {
+    "name": "Sort Tasks by Status",
+    "description": "Allow task list display to be sorted by task status",
+    "due": "25/11/2024",
+    "assigned": "Jordy",
+    "status": "in-progress",
+  },
+}
