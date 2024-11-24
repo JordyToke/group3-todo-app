@@ -13,6 +13,7 @@ function TaskList({ tasks }) {
       ) : (
         tasks.map((task) => (
           <div key={task.id} className="task-card">
+            <hr />
             <h4>{task.name}</h4>
             <p>
               <strong>Description:</strong> {task.description}
