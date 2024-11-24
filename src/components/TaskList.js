@@ -7,7 +7,7 @@ function TaskList({ tasks }) {
   return (
     <div className="task-list">
       <h3>Task List</h3>
-      {/* Ternary => if there are tasks in teh task list display "No tasks added yet." else map tasks to list of JSX  */}
+      {/* Ternary => if there are tasks in the task list display "No tasks added yet." else map tasks to list of JSX  */}
       {tasks.length === 0 ? (
         <p>No tasks added yet.</p>
       ) : (
@@ -15,13 +15,16 @@ function TaskList({ tasks }) {
           <div key={task.id} className="task-card">
             <h4>{task.name}</h4>
             <p>
-              <strong>Email:</strong> {task.email}
+              <strong>Description:</strong> {task.description}
             </p>
             <p>
-              <strong>Phone:</strong> {task.phone}
+              <strong>Due Date:</strong> {task.due}
             </p>
             <p>
-              <strong>Category:</strong> {task.category}
+              <strong>Assigned:</strong> {task.assigned}
+            </p>
+            <p>
+              <strong>Status:</strong> {task.status}
             </p>
           </div>
         ))
