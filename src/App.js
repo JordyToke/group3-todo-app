@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Helmet } from "react-helmet";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 import "./App.css";
+import dummyData from "./components/Tasks.json";
 
 function App() {
   const [tasks, setTasks] = useState([]);
 
   // Load tasks from localStorage on initialization
   useEffect(function() {
-    const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    const savedTasks = dummyData || [];
     setTasks(savedTasks);
   }, []);
+
+  // Load tasks from localStorage on initialization
+  // useEffect(function() {
+  //   const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  //   setTasks(savedTasks);
+  // }, []);
 
   // Save tasks to localStorage whenever they change
   useEffect(function() {
@@ -25,9 +31,6 @@ function App() {
 
   return (
     <div className="app-container">
-      <Helmet>
-        <title>Group-3 Todo App</title>
-      </Helmet>
       <h1>Task Management App</h1>
       <TaskForm onAddTask={addTask} />
       <TaskList tasks={tasks} />

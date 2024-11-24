@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Helmet, HelmetProvider } from "react-helmet-async"
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -7,7 +8,12 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <HelmetProvider>
+        <Helmet>
+          <title>Group-3 Todo App</title>
+        </Helmet>
+      <App />
+    </HelmetProvider>
   </React.StrictMode>
 );
 
