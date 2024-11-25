@@ -11,3 +11,77 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h1 {
+  size: 12px;
+  color: black;
+}
+
+h3 {
+  size: 10px;
+  color: black;
+}
+
+h4 {
+  size: 20px;
+  color: black;
+}
+
+p{
+  color: black;
+}
+
+button {
+  padding: 12px;
+  color: brown;
+  border: black, 5px, solid;
+  margin: 10px;
+  size: 16px;
+}
+
+button:hover{
+  background-color: grey;
+  border: 7px black solid;
+  
+}
+/* NOTE: the strange design choices are just so I 
+can see what is what (aka make sure I'm adding the correct 
+classes to the correct place) and is not a styling choice */
+
+/* Form styling */
+
+.form-label{
+  background-color: yellow;
+  margin-right: 10px;
+}
+
+.form-input {
+  size: 30px;
+  padding: 3px;
+  border: 3px black solid;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+}
+
+
+/* TaskList styling */
+
+.list-label{
+  background-color: white;
+  padding: 3px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.task-list {
+  border: 1px black solid;
+  background-color: peachpuff;
+}
+
+.delete-button {
+  color: red;
+  font-weight: bold;
+}

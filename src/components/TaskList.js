@@ -14,17 +14,19 @@ function TaskList({ tasks }) {
         tasks.map((task) => (
           <div key={task.id} className="task-card">
             <hr />
-            <h4>{task.name}</h4>
-            <p>
+          {/* Delete button currently does nothing */}
+            <button className= 'delete-button'>Delete</button>
+            <h4 className='list-label'>{task.name}</h4>
+            <p className='list-label'>
               <strong>Description:</strong> {task.description}
             </p>
-            <p>
+            <p className='list-label'>
               <strong>Due Date:</strong> {task.dueDate}
             </p>
-            <p>
+            <p className='list-label'>
               <strong>Assigned:</strong> {task.assignedTo}
             </p>
-            <p>
+            <p className='list-label'>
               <strong>Status:</strong> {task.status}
             </p>
           </div>

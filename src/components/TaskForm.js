@@ -55,28 +55,29 @@ function TaskForm({ onAddTask }) {
     }
   };
 
+  // What is actually retunred to be displayed ont he page
   return (
     <form onSubmit={handleSubmit}>
       <h3>Add Task</h3>
       <div>
-        <label for='name'>Name:</label>
-        <input type='text' name='name' id='name' value={formData.name} onChange={handleInputChange} />
+        <label for='name' className='form-label'>Name:</label>
+        <input type='text' name='name' className='form-input' id='name' value={formData.name} onChange={handleInputChange} />
       </div>
       <div>
-        <label for='description'>Description:</label>
-        <textarea type='text' name='description' id='description' value={formData.description} onChange={handleInputChange} />
+        <label for='description' className='form-label'>Description:</label>
+        <textarea type='text' name='description' className='form-input' id='description' value={formData.description} onChange={handleInputChange} />
       </div>
       <div>
-        <label for='dueDate'>DueDate:</label>
-        <input type='date' name='dueDate' id='dueDate' value={formData.dueDate} onChange={handleInputChange} />
+        <label for='dueDate' className='form-label'>DueDate:</label>
+        <input type='date' name='dueDate' className='form-input' className='form-input' id='dueDate' value={formData.dueDate} onChange={handleInputChange} />
       </div>
       <div>
-        <label for='assignedTo'>AssignedTo:</label>
-        <input type='text' name='assignedTo' id='assignedTo' value={formData.assignedTo} onChange={handleInputChange} />
+        <label for='assignedTo' className='form-label'>AssignedTo:</label>
+        <input type='text' name='assignedTo' className='form-input' id='assignedTo' value={formData.assignedTo} onChange={handleInputChange} />
       </div>
       <div>
-        <label for='status'>Status:</label>
-        <select name='status' id='status' value={formData.status} onChange={handleInputChange}>
+        <label for='status' className='form-label'>Status:</label>
+        <select name='status' className='form-input' id='status' value={formData.status} onChange={handleInputChange}>
           <option value='in-progress' selected>In-progress</option>
           <option value='completed'>Completed</option>
           <option value='review'>Review</option>
