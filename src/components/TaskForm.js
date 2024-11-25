@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function TaskForm({ onAddTask }) {
   // initialise formData from session storage or to default empty form values
@@ -13,31 +13,38 @@ function TaskForm({ onAddTask }) {
   const [error, setError] = useState('');
 
   const handleInputChange = (e) => {
+    // reset error
+    setError('');
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  };
+
+  useEffect(() => {
     // save current form progress to local storage
     localStorage.setItem("formData", JSON.stringify(formData));
-  };
+  }, [formData])
 
   // form validation is included in here
   const handleSubmit = (e) => {
     // necessary to prevent the page refreshing on submit
     e.preventDefault();
-    // reset error
-    setError('');
 
     // save individual fields from the form data
     const { name, description, dueDate, assignedTo, status } = formData;
 
+    // ADD ANY EXTRA VALIDATION HERE
+    // validate date to be after current date
+    // alpha numeric validation
+    // minimum and maximum lengths
+    
     // checks all fields have been filled
     if (!name || !description || !dueDate || !assignedTo || !status) {
       setError('All fields are required.');
       console.log(error);
+      return;
     }
-    // validate date to be after current date
-    // alpha numeric validation
-    // minimum and maximum lengths
 
+    // if no errors
     if (!error) {
       // Add a unique ID to the task
       const newTask = { ...formData, id: Date.now() };
