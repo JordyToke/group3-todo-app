@@ -1,5 +1,7 @@
 # <p align="center"><a href="https://github.com/JordyToke/group3-todo-app" id="top">Group-3 Project: React Todo App </a></p>
 
+![GitHub last commit](https://img.shields.io/github/last-commit/jordyToke/group3-todo-app)
+
 ## <span style="color:yellow">Getting Started</span>
 
 After cloning or pulling the repo if you have any immediate issues make sure to run `npm install` in case any packages or dependencies have been updated.
