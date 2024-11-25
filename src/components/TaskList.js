@@ -19,10 +19,10 @@ function TaskList({ tasks }) {
               <strong>Description:</strong> {task.description}
             </p>
             <p>
-              <strong>Due Date:</strong> {task.due}
+              <strong>Due Date:</strong> {task.dueDate}
             </p>
             <p>
-              <strong>Assigned:</strong> {task.assigned}
+              <strong>Assigned:</strong> {task.assignedTo}
             </p>
             <p>
               <strong>Status:</strong> {task.status}
