@@ -1,4 +1,4 @@
-# <p align="center"><a href="https://github.com/JordyToke/group3-todo-app" id="top">Group-3 Project: React Todo App </a></p>
+# <p align="center"><a href="https://jordytoke.com/group3-todo-app/" id="top">Group-3 Project: React Todo App </a></p>
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/jordyToke/group3-todo-app)
 
