@@ -3,9 +3,10 @@ import React, { useState } from "react";
 function TaskForm({ onAddTask }) {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
-    phone: "",
-    category: "Family",
+    description: "",
+    dueDate: "",
+    assignedTo: "Family",
+    status: ""
   });
 
   const [error, setError] = useState("");
@@ -35,9 +36,10 @@ function TaskForm({ onAddTask }) {
     // Reset form
     setFormData({
       name: "",
-      email: "",
-      phone: "",
-      category: "Family",
+      description: "",
+      dueDate: "",
+      assignedTo: "Family",
+      status: ""
     });
   };
 
@@ -54,33 +56,42 @@ function TaskForm({ onAddTask }) {
         />
       </div>
       <div>
-        <label>Email:</label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleInputChange}
-        />
-      </div>
-      <div>
-        <label>Phone:</label>
+        <label>Description:</label>
         <input
           type="text"
-          name="phone"
-          value={formData.phone}
+          name="description"
+          value={formData.description}
           onChange={handleInputChange}
         />
       </div>
       <div>
-        <label>Category:</label>
+        <label>DueDate:</label>
+        <input
+          type="date"
+          name="dueDate"
+          value={formData.dueDate}
+          onChange={handleInputChange}
+        />
+      </div>
+      <div>
+        <label>AssignedTo:</label>
+        <input
+          type="text"
+          name="assignedTo"
+          value={formData.assignedTo}
+          onChange={handleInputChange}
+        />
+      </div>
+      <div>
+        <label>Status:</label>
         <select
-          name="category"
-          value={formData.category}
+          name="status"
+          value={formData.status}
           onChange={handleInputChange}
         >
-          <option value="Family">Family</option>
-          <option value="Work">Work</option>
-          <option value="Friends">Friends</option>
+          <option value="in-progress">In-progress</option>
+          <option value="completed">Completed</option>
+          <option value="review">Review</option>
         </select>
       </div>
       {error && <p className="error-message">{error}</p>}
