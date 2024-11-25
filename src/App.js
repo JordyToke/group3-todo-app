@@ -5,17 +5,12 @@ import "./App.css";
 import dummyData from "./components/Tasks.json";
 
 function App() {
-  const [tasks, setTasks] = useState([]);
-
-  // Load tasks from localStorage on initialization
-  useEffect(function() {
-    const savedTasks = dummyData || [];
-    setTasks(savedTasks);
-  }, []);
+  // initialise out task list from local storage
+  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
 
   // Load tasks from localStorage on initialization
   // useEffect(function() {
-  //   const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  //   const savedTasks = dummyData || [];
   //   setTasks(savedTasks);
   // }, []);
 
