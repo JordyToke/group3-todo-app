@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 
 function TaskForm({ onAddTask }) {
-  const [formData, setFormData] = useState({
+  // initialise formData from session storage or to default empty form values
+  const [formData, setFormData] = useState(JSON.parse(localStorage.getItem("formData")) || {
     name: '',
     description: '',
     dueDate: '',
     assignedTo: '',
-    status: '',
+    status: 'in-progress',
   });
 
   const [error, setError] = useState('');
@@ -14,65 +15,69 @@ function TaskForm({ onAddTask }) {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    // save current form progress to local storage
+    localStorage.setItem("formData", JSON.stringify(formData));
   };
 
   // form validation is included in here
   const handleSubmit = (e) => {
+    // necessary to prevent the page refreshing on submit
     e.preventDefault();
+    // reset error
+    setError('');
 
-    // save fields from the form data
+    // save individual fields from the form data
     const { name, description, dueDate, assignedTo, status } = formData;
 
     // checks all fields have been filled
     if (!name || !description || !dueDate || !assignedTo || !status) {
-      console.log('All fields are required.');
+      setError('All fields are required.');
+      console.log(error);
     }
-
     // validate date to be after current date
     // alpha numeric validation
     // minimum and maximum lengths
 
-    setError('');
+    if (!error) {
+      // Add a unique ID to the task
+      const newTask = { ...formData, id: Date.now() };
+      // Pass the task to the parent component
+      onAddTask(newTask);
 
-    // Add a unique ID to the task
-    const newTask = { ...formData, id: Date.now() };
-
-    // Pass the task to the parent component
-    onAddTask(newTask);
-
-    // Reset form
-    setFormData({
-      name: '',
-      description: '',
-      dueDate: '',
-      assignedTo: '',
-      status: '',
-    });
+      // Reset form: date defaults to date now, status defaults to in-progress
+      setFormData({
+        name: '',
+        description: '',
+        dueDate: '',
+        assignedTo: '',
+        status: 'in-progress',
+      });
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <h3>Add Task</h3>
       <div>
-        <label>Name:</label>
-        <input type='text' name='name' value={formData.name} onChange={handleInputChange} />
+        <label for='name'>Name:</label>
+        <input type='text' name='name' id='name' value={formData.name} onChange={handleInputChange} />
       </div>
       <div>
-        <label>Description:</label>
-        <textarea type='text' name='description' value={formData.description} onChange={handleInputChange} />
+        <label for='description'>Description:</label>
+        <textarea type='text' name='description' id='description' value={formData.description} onChange={handleInputChange} />
       </div>
       <div>
-        <label>DueDate:</label>
-        <input type='date' name='dueDate' value={formData.dueDate} onChange={handleInputChange} />
+        <label for='dueDate'>DueDate:</label>
+        <input type='date' name='dueDate' id='dueDate' value={formData.dueDate} onChange={handleInputChange} />
       </div>
       <div>
-        <label>AssignedTo:</label>
-        <input type='text' name='assignedTo' value={formData.assignedTo} onChange={handleInputChange} />
+        <label for='assignedTo'>AssignedTo:</label>
+        <input type='text' name='assignedTo' id='assignedTo' value={formData.assignedTo} onChange={handleInputChange} />
       </div>
       <div>
-        <label>Status:</label>
-        <select name='status' value={formData.status} onChange={handleInputChange}>
-          <option value='in-progress'>In-progress</option>
+        <label for='status'>Status:</label>
+        <select name='status' id='status' value={formData.status} onChange={handleInputChange}>
+          <option value='in-progress' selected>In-progress</option>
           <option value='completed'>Completed</option>
           <option value='review'>Review</option>
         </select>
