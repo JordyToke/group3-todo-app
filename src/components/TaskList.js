@@ -1,8 +1,7 @@
 import React from "react";
 
 // TaskList takes "tasks" prop
-function TaskList({ tasks }) {
-
+function TaskList({ tasks, onEdit }) {
   // returned TaskList JSX element
   return (
     <div className="task-list">
@@ -14,19 +13,32 @@ function TaskList({ tasks }) {
         tasks.map((task) => (
           <div key={task.id} className="task-card">
             <hr />
-          {/* Delete button currently does nothing */}
-            <button className= 'delete-button'>Delete</button>
-            <h4 className='list-label'>{task.name}</h4>
-            <p className='list-label'>
+            {/* Delete button currently does nothing-Tristan is updating this part */}
+            <button className="delete-button">Delete</button>
+            <button
+              className="edit-button"
+              onClick={() => {
+                const updatedTask = {
+                  ...task,
+                  name: prompt("Edit Task Name", task.name),
+                };
+                onEdit(updatedTask);
+              }}
+            >
+              Edit
+            </button>
+
+            <h4 className="list-label">{task.name}</h4>
+            <p className="list-label">
               <strong>Description:</strong> {task.description}
             </p>
-            <p className='list-label'>
+            <p className="list-label">
               <strong>Due Date:</strong> {task.dueDate}
             </p>
-            <p className='list-label'>
+            <p className="list-label">
               <strong>Assigned:</strong> {task.assignedTo}
             </p>
-            <p className='list-label'>
+            <p className="list-label">
               <strong>Status:</strong> {task.status}
             </p>
           </div>
