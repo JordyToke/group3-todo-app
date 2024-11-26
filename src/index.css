@@ -1,3 +1,10 @@
+:root {
+  margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +12,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(216 226 242);
 }
 
 code {
@@ -31,43 +39,109 @@ p{
   color: black;
 }
 
+.submit-button {
+  grid-area: submit-button;
+}
+
 button {
-  padding: 12px;
-  color: brown;
-  border: black, 5px, solid;
-  margin: 10px;
-  size: 16px;
+  border: 1px solid gray;
+  padding: 15px;
 }
 
 button:hover{
   background-color: grey;
-  border: 7px black solid;
-  
+  border: 1 black solid;
+  color: black;
 }
-/* NOTE: the strange design choices are just so I 
-can see what is what (aka make sure I'm adding the correct 
-classes to the correct place) and is not a styling choice */
 
-/* Form styling */
+
+/* FORM styling */
+
+#form {
+  border: 1px solid gray;
+  background-color: white;
+  box-shadow: 2px 2px gray;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.form-header {
+  grid-area: form-header;
+  
+  text-align: center;
+}
+
+.name {
+  grid-area: name;
+  padding: 15px;
+}
+
+.description {
+  grid-area: description;
+  padding: 15px;
+}
+
+.due-date {
+  grid-area: due-date;
+  padding: 15px;
+}
+
+.assigned-to {
+  grid-area: assigned-to;
+  padding: 15px;
+}
+
+.status {
+  grid-area: status;
+  padding: 15px;
+}
+
+
+.error-message {
+  grid-area: error-message;
+  align-self: center;
+  color: red;
+  font-weight: bold;
+  padding: 15px;
+}
+
+ #form {
+  display: grid;
+    
+  border: 1px solid black;
+  grid-template-areas: 
+  ' . form-header form-header form-header .'
+  ' name name name name name '
+  ' description description description description description '
+  ' due-date assigned-to status . submit-button '
+  ' . error-message error-message error-message . '
+}
 
 .form-label{
-  background-color: yellow;
+  /* display: block; */
+  /* float: left; */
   margin-right: 10px;
+
 }
 
 .form-input {
+  /* display: block;
+  float: right; */
   size: 30px;
   padding: 3px;
-  border: 3px black solid;
+  border: 1px solid grey;
 }
 
-.error-message {
-  color: red;
-  font-weight: bold;
-}
+
 
 
 /* TaskList styling */
+
+.task-list {
+  display: grid;
+  gap: 2rem;
+
+}
 
 .list-label{
   background-color: white;
@@ -76,12 +150,57 @@ classes to the correct place) and is not a styling choice */
   margin-left: 10px;
 }
 
-.task-list {
+
+
+.task-card {
   border: 1px black solid;
-  background-color: peachpuff;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 2px 2px gray;
+  display: grid;
+    
+border: 1px solid black;
+grid-template-areas: 
+' name name name name name '
+' description description description description description '
+' due-date assigned-to status edit-button delete-button '
+}
+
+.list-name {
+  grid-area: list-name;
+  font-weight: bold;
+}
+
+.list-description {
+  grid-area: list-description;
+  font-weight: bold;
+}
+
+.list-duedate {
+  grid-area: list-duedate;
+  font-weight: bold;
+}
+
+.list-assigned {
+  grid-area: list-assigned;
+  font-weight: bold;
+}
+
+.list-status {
+  grid-area: list-status;
+  font-weight: bold;
+}
+
+.edit-button {
+  grid-area: edit-button;
+  color: gray;
+  font-weight: bold;
 }
 
 .delete-button {
+  grid-area: delete-button;
   color: red;
   font-weight: bold;
 }
+
