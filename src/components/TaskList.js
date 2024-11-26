@@ -1,7 +1,8 @@
 import React from "react";
 
+
 // TaskList takes "tasks" prop
-function TaskList({ tasks }) {
+function TaskList({ tasks, removeTask }) {
 
   // returned TaskList JSX element
   return (
@@ -14,8 +15,8 @@ function TaskList({ tasks }) {
         tasks.map((task) => (
           <div key={task.id} className="task-card">
             <hr />
-          {/* Delete button currently does nothing */}
-            <button className= 'delete-button'>Delete</button>
+          {/* Delete button is working */}
+            <button className= 'delete-button' onClick={function(){removeTask(task.id)}}>Delete</button>
             <h4 className='list-label'>{task.name}</h4>
             <p className='list-label'>
               <strong>Description:</strong> {task.description}

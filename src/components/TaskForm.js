@@ -69,7 +69,7 @@ function TaskForm({ onAddTask }) {
       </div>
       <div>
         <label for='dueDate' className='form-label'>DueDate:</label>
-        <input type='date' name='dueDate' className='form-input' className='form-input' id='dueDate' value={formData.dueDate} onChange={handleInputChange} />
+        <input type='date' name='dueDate' className='form-input' id='dueDate' value={formData.dueDate} onChange={handleInputChange} />
       </div>
       <div>
         <label for='assignedTo' className='form-label'>AssignedTo:</label>
