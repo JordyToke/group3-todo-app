@@ -14,7 +14,6 @@ function TaskForm({ onAddTask }) {
 
   const handleInputChange = (e) => {
     // reset error
-    setError('');
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
@@ -24,10 +23,18 @@ function TaskForm({ onAddTask }) {
     localStorage.setItem("formData", JSON.stringify(formData));
   }, [formData])
 
+  // log new errors to console
+  useEffect(() => {
+    if (error) {
+      console.log(error);
+    }
+  }, [error]);
+
   // form validation is included in here
   const handleSubmit = (e) => {
     // necessary to prevent the page refreshing on submit
     e.preventDefault();
+    let valid = true;
 
     // save individual fields from the form data
     const { name, description, dueDate, assignedTo, status } = formData;
@@ -40,12 +47,11 @@ function TaskForm({ onAddTask }) {
     // checks all fields have been filled
     if (!name || !description || !dueDate || !assignedTo || !status) {
       setError('All fields are required.');
-      console.log(error);
-      return;
+      valid = false;
     }
 
-    // if no errors
-    if (!error) {
+    // if form data is valid
+    if (valid) {
       // Add a unique ID to the task
       const newTask = { ...formData, id: Date.now() };
       // Pass the task to the parent component
@@ -67,25 +73,25 @@ function TaskForm({ onAddTask }) {
     <form onSubmit={handleSubmit}>
       <h3>Add Task</h3>
       <div>
-        <label for='name' className='form-label'>Name:</label>
+        <label htmlFor='name' className='form-label'>Name:</label>
         <input type='text' name='name' className='form-input' id='name' value={formData.name} onChange={handleInputChange} />
       </div>
       <div>
-        <label for='description' className='form-label'>Description:</label>
+        <label htmlFor='description' className='form-label'>Description:</label>
         <textarea type='text' name='description' className='form-input' id='description' value={formData.description} onChange={handleInputChange} />
       </div>
       <div>
-        <label for='dueDate' className='form-label'>DueDate:</label>
+        <label htmlFor='dueDate' className='form-label'>DueDate:</label>
         <input type='date' name='dueDate' className='form-input' id='dueDate' value={formData.dueDate} onChange={handleInputChange} />
       </div>
       <div>
-        <label for='assignedTo' className='form-label'>AssignedTo:</label>
+        <label htmlFor='assignedTo' className='form-label'>AssignedTo:</label>
         <input type='text' name='assignedTo' className='form-input' id='assignedTo' value={formData.assignedTo} onChange={handleInputChange} />
       </div>
       <div>
-        <label for='status' className='form-label'>Status:</label>
+        <label htmlFor='status' className='form-label'>Status:</label>
         <select name='status' className='form-input' id='status' value={formData.status} onChange={handleInputChange}>
-          <option value='in-progress' selected>In-progress</option>
+          <option value='in-progress'>In-progress</option>
           <option value='completed'>Completed</option>
           <option value='review'>Review</option>
         </select>
