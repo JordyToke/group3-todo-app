@@ -1,13 +1,13 @@
 import React from "react";
 
-
 // TaskList takes "tasks" prop
-function TaskList({ tasks, removeTask, onEdit }) {
+function TaskList({ tasks, removeTask, onEdit, sort }) {
 
   // returned TaskList JSX element
   return (
     <div className="task-list">
       <h3>Task List</h3>
+      {tasks.length > 1 && (<button className="sort" onClick={() => sort("status")}>Sort by status</button>)}
       {/* Ternary => if there are tasks in the task list display "No tasks added yet." else map tasks to list of JSX  */}
       {tasks.length === 0 ? (
         <p>No tasks added yet.</p>
@@ -16,9 +16,9 @@ function TaskList({ tasks, removeTask, onEdit }) {
           <div key={task.id} className="task-card">
 
 
-           {/* edit button in progress */}
-          <button className= 'delete-button' onClick={function(){removeTask(task.id)}}>Delete</button>
-          <button
+             {/* Delete button currently does nothing-Tristan is updating this part */}
+            <button className="delete-button" onClick={function(){removeTask(task.id)}}>Delete</button>
+            <button
               className="edit-button"
 
               onClick={() => {

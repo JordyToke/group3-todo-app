@@ -9,6 +9,7 @@ function App() {
   const [tasks, setTasks] = useState(
     JSON.parse(localStorage.getItem("tasks")) || []
   );
+  const [sorted, setSorted] = useState(null);
 
   // Save tasks to localStorage whenever they change
   useEffect(
@@ -21,6 +22,7 @@ function App() {
   // Add a new task
   function addTask(task) {
     setTasks([...tasks, task]);
+    setSorted(null);
   }
 
   //Edit a task
@@ -28,6 +30,7 @@ function App() {
     setTasks(
       tasks.map((task) => (task.id === updatedTask.id ? updatedTask : task))
     );
+    setSorted(null)
   };
 
   // Delete Tasks
@@ -38,6 +41,51 @@ function App() {
     setTasks(newSetTasks); // sets the state of setTasks to NEW state of newSetTasks
   };
 
+  // Object to map sort methods to their corresponding functions
+  const sortMethods = {
+    status: sortByStatus,
+    // Add other sort methods here
+  };
+
+  // handle sorting tasks list "sortMethod" determines which parameter is used to sort the task list
+  function handleSort(sortMethod) {
+    const sortFunction = sortMethods[sortMethod];
+    if (sortFunction) {
+      sortFunction();
+    }
+    // else some default sort function should go here
+  }
+
+  // sort task list by status
+  function sortByStatus() {
+    // create new variable to hold our reordered array of tasks
+    let updatedTasks = tasks.slice();
+    if (sorted !== "status") {
+      // if unsorted reorder tasks by status
+      updatedTasks.sort((taskA, taskB) => {
+        // statuses variable for enumerating task status
+        const statuses = ["in-progress", "completed", "review"];
+        // map statuses to their index for easier comparison
+        const statusMap = statuses.reduce((acc, status, index) => {
+          acc[status] = index;
+          return acc;
+        }, {});
+        // compare tasks based on their status index
+        return statusMap[taskA.status] - statusMap[taskB.status];
+      });
+    } else if (sorted === "status") {
+      // reverse tasks if already sorted
+      updatedTasks.reverse();
+    }
+    if (updatedTasks) {
+      console.log(updatedTasks);
+    }
+    setTasks(updatedTasks);
+    setSorted("status");
+  }
+
+
+
   return (
     <div className="app-container">
       <HelmetProvider>
@@ -47,7 +95,7 @@ function App() {
       </HelmetProvider>
       <h1>Task Management App</h1>
       <TaskForm onAddTask={addTask} />
-      <TaskList tasks={tasks} onEdit={handleEdit} removeTask={removeTask}/>
+      <TaskList tasks={tasks} onEdit={handleEdit} removeTask={removeTask} sort={handleSort}/>
     </div>
   );
 }
