@@ -12,11 +12,10 @@ function TaskList({ tasks, onEdit }) {
       ) : (
         tasks.map((task) => (
           <div key={task.id} className="task-card">
-            <hr />
             {/* Delete button currently does nothing-Tristan is updating this part */}
             <button className="delete-button">Delete</button>
             <button
-              className="edit-button"
+              className='edit-button'
               onClick={() => {
                 const updatedTask = {
                   ...task,
@@ -28,17 +27,17 @@ function TaskList({ tasks, onEdit }) {
               Edit
             </button>
 
-            <h4 className="list-label">{task.name}</h4>
-            <p className="list-label">
+            <h4 className="name">{task.name}</h4>
+            <p className="description">
               <strong>Description:</strong> {task.description}
             </p>
-            <p className="list-label">
+            <p className="due-date">
               <strong>Due Date:</strong> {task.dueDate}
             </p>
-            <p className="list-label">
+            <p className="assigned-to">
               <strong>Assigned:</strong> {task.assignedTo}
             </p>
-            <p className="list-label">
+            <p className="status">
               <strong>Status:</strong> {task.status}
             </p>
           </div>
