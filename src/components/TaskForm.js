@@ -36,7 +36,7 @@ function TaskForm({ onAddTask }) {
     // validate date to be after current date
     // alpha numeric validation
     // minimum and maximum lengths
-    
+
     // checks all fields have been filled
     if (!name || !description || !dueDate || !assignedTo || !status) {
       setError('All fields are required.');
@@ -76,7 +76,7 @@ function TaskForm({ onAddTask }) {
       </div>
       <div>
         <label for='dueDate' className='form-label'>DueDate:</label>
-        <input type='date' name='dueDate' className='form-input' className='form-input' id='dueDate' value={formData.dueDate} onChange={handleInputChange} />
+        <input type='date' name='dueDate' className='form-input' id='dueDate' value={formData.dueDate} onChange={handleInputChange} />
       </div>
       <div>
         <label for='assignedTo' className='form-label'>AssignedTo:</label>
