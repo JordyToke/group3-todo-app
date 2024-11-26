@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // TaskList takes "tasks" prop
-function TaskList({ tasks, onEdit, onSort }) {
+function TaskList({ tasks, removeTask, onEdit, onSort }) {
   const [sorted, setSorted] = useState("");
 
   // sort button component logic
@@ -48,7 +48,7 @@ function TaskList({ tasks, onEdit, onSort }) {
           <div key={task.id} className="task-card">
             <hr />
             {/* Delete button currently does nothing-Tristan is updating this part */}
-            <button className="delete-button">Delete</button>
+            <button className="delete-button" onClick={function(){removeTask(task.id)}}>Delete</button>
             <button
               className="edit-button"
               onClick={() => {
@@ -66,13 +66,13 @@ function TaskList({ tasks, onEdit, onSort }) {
             <p className="list-label">
               <strong>Description:</strong> {task.description}
             </p>
-            <p className="list-label">
+            <p>
               <strong>Due Date:</strong> {task.dueDate}
             </p>
-            <p className="list-label">
+            <p>
               <strong>Assigned:</strong> {task.assignedTo}
             </p>
-            <p className="list-label">
+            <p>
               <strong>Status:</strong> {task.status}
             </p>
           </div>

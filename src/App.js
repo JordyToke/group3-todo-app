@@ -28,7 +28,15 @@ function App() {
     setTasks(
       tasks.map((task) => (task.id === updatedTask.id ? updatedTask : task))
     );
-  }
+  };
+
+  // Delete Tasks
+  function removeTask(index){
+    const newSetTasks = tasks.filter(function(task){
+    return task.id !== index; // if Index matches task.id then it is filtered/deleted from array (otherwise returned)
+    });
+    setTasks(newSetTasks); // sets the state of setTasks to NEW state of newSetTasks
+  };
 
   // handle sorting tasks list
   function handleSort(updatedTasks) {
@@ -44,7 +52,7 @@ function App() {
       </HelmetProvider>
       <h1>Task Management App</h1>
       <TaskForm onAddTask={addTask} />
-      <TaskList tasks={tasks} onEdit={handleEdit} onSort={handleSort}/>
+      <TaskList tasks={tasks} onEdit={handleEdit} removeTask={removeTask} onSort={handleSort}/>
     </div>
   );
 }
