@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
+import { Helmet, HelmetProvider } from "react-helmet-async"
 import "./App.css";
 
 function App() {
@@ -19,6 +20,11 @@ function App() {
 
   return (
     <div className="app-container">
+      <HelmetProvider>
+        <Helmet>
+          <title>Group-3 Todo App</title>
+        </Helmet>
+      </HelmetProvider>
       <h1>Task Management App</h1>
       <TaskForm onAddTask={addTask} />
       <TaskList tasks={tasks} />
