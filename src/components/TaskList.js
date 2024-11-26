@@ -6,7 +6,7 @@ function TaskList({ tasks, removeTask, onEdit, sort }) {
   // returned TaskList JSX element
   return (
     <div className="task-list">
-      <h3>Task List</h3>
+      {/* <h3>Task List</h3> */}
       {tasks.length > 1 && (<button className="sort" onClick={() => sort("status")}>Sort by status</button>)}
       {/* Ternary => if there are tasks in the task list display "No tasks added yet." else map tasks to list of JSX  */}
       {tasks.length === 0 ? (

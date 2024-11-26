@@ -44,13 +44,15 @@ p{
 }
 
 button {
-  border: 1px solid gray;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  background-color: rgb(116 156 194);
   padding: 15px;
 }
 
 button:hover{
-  background-color: grey;
-  border: 1 black solid;
+  background-color: lightgray;
   color: black;
 }
 
@@ -58,11 +60,19 @@ button:hover{
 /* FORM styling */
 
 #form {
-  border: 1px solid gray;
+
   background-color: white;
   box-shadow: 2px 2px gray;
   border-radius: 10px;
   padding: 20px;
+
+  display: grid;
+  grid-template-areas: 
+  ' . form-header form-header form-header .'
+  ' name name name name name '
+  ' description description description description description '
+  ' due-date assigned-to status . submit-button '
+  ' . error-message error-message error-message . '
 }
 
 .form-header {
@@ -105,17 +115,7 @@ button:hover{
   padding: 15px;
 }
 
- #form {
-  display: grid;
-    
-  border: 1px solid black;
-  grid-template-areas: 
-  ' . form-header form-header form-header .'
-  ' name name name name name '
-  ' description description description description description '
-  ' due-date assigned-to status . submit-button '
-  ' . error-message error-message error-message . '
-}
+
 
 .form-label{
   /* display: block; */
@@ -129,7 +129,7 @@ button:hover{
   float: right; */
   size: 30px;
   padding: 3px;
-  border: 1px solid grey;
+  border: 1px solid lightgray;
 }
 
 
@@ -140,6 +140,7 @@ button:hover{
 .task-list {
   display: grid;
   gap: 2rem;
+  margin-top: 2rem;
 
 }
 
@@ -153,14 +154,15 @@ button:hover{
 
 
 .task-card {
-  border: 1px black solid;
   border-radius: 10px;
   padding: 20px;
   background-color: white;
   box-shadow: 2px 2px gray;
   display: grid;
+  gap: 1em;
     
-border: 1px solid black;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: repeat(3, minmax(1fr, 20px));
 grid-template-areas: 
 ' name name name name name '
 ' description description description description description '
@@ -194,13 +196,10 @@ grid-template-areas:
 
 .edit-button {
   grid-area: edit-button;
-  color: gray;
-  font-weight: bold;
 }
 
 .delete-button {
   grid-area: delete-button;
   color: red;
-  font-weight: bold;
 }
 

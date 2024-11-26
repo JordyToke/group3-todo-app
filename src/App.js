@@ -93,7 +93,6 @@ function App() {
           <title>Group-3 Todo App</title>
         </Helmet>
       </HelmetProvider>
-      <h1>Task Management App</h1>
       <TaskForm onAddTask={addTask} />
       <TaskList tasks={tasks} onEdit={handleEdit} removeTask={removeTask} sort={handleSort}/>
     </div>
