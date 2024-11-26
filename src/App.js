@@ -30,6 +30,11 @@ function App() {
     );
   }
 
+  // handle sorting tasks list
+  function handleSort(updatedTasks) {
+    setTasks(prevTasks => updatedTasks);
+  }
+
   return (
     <div className="app-container">
       <HelmetProvider>
@@ -39,7 +44,7 @@ function App() {
       </HelmetProvider>
       <h1>Task Management App</h1>
       <TaskForm onAddTask={addTask} />
-      <TaskList tasks={tasks} onEdit={handleEdit} />
+      <TaskList tasks={tasks} onEdit={handleEdit} onSort={handleSort}/>
     </div>
   );
 }
