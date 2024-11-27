@@ -73,7 +73,7 @@ function TaskForm({ onAddTask }) {
     <form ID='form' onSubmit={handleSubmit}>
       <h3 className='form-header'>Add Task</h3>
       <div className='name'>
-        <label htmlFor='name' className='form-label'>Name:</label>
+        <label htmlFor='name' className='form-label'>Task Name:</label>
         <input type='text' name='name' className='form-input' id='name' value={formData.name} onChange={handleInputChange} />
       </div>
       <div className='description'>

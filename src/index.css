@@ -1,15 +1,14 @@
 :root {
   margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  font-family: "Inter", san-serif;
+  color: #8d8d8d;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(216 226 242);
@@ -20,15 +19,10 @@ code {
     monospace;
 }
 
-h1 {
-  size: 12px;
-  color: black;
+h1, h3 {
+  size: 28pt;
 }
 
-h3 {
-  size: 10px;
-  color: black;
-}
 
 h4 {
   size: 20px;
@@ -200,6 +194,6 @@ grid-template-areas:
 
 .delete-button {
   grid-area: delete-button;
-  color: red;
+  /* color: red; */
 }
 
