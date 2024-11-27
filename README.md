@@ -1,6 +1,7 @@
 # <p align="center"><a href="https://jordytoke.com/group3-todo-app/" id="top">Group-3 Project: React Todo App </a></p>
 
-![GitHub last commit](https://img.shields.io/github/last-commit/jordyToke/group3-todo-app)![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=http%3A%2F%2Flocalhost%3A3001%2Fgroup3-todo-app)
+![GitHub last commit](https://img.shields.io/github/last-commit/jordyToke/group3-todo-app)![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fjordytoke.com%2Fgroup3-todo-app%2F)
+
 
 
 ## <span style="color:yellow">Getting Started</span>
