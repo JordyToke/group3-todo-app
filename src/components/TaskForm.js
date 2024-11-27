@@ -1,76 +1,88 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 function TaskForm({ onAddTask }) {
-  // initialise formData from session storage or to default empty form values
-  const [formData, setFormData] = useState(JSON.parse(localStorage.getItem("formData")) || {
-    name: '',
-    description: '',
-    dueDate: '',
-    assignedTo: '',
-    status: 'in-progress',
-  });
+  // Initialize formData with default values or from localStorage
+  const [formData, setFormData] = useState(
+    JSON.parse(localStorage.getItem("formData")) || {
+      name: "",
+      description: "",
+      dueDate: "",
+      assignedTo: "",
+      status: "in-progress",
+    }
+  );
 
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
+  // Save formData to localStorage on change
+  useEffect(() => {
+    localStorage.setItem("formData", JSON.stringify(formData));
+  }, [formData]);
+
+  // Input change handler
   const handleInputChange = (e) => {
-    // reset error
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    setError(""); // Clear error on input change
   };
 
-  useEffect(() => {
-    // save current form progress to local storage
-    localStorage.setItem("formData", JSON.stringify(formData));
-  }, [formData])
+  // Validation function
+  const validateForm = () => {
+    const { name, description, dueDate, assignedTo } = formData;
+    const nameRegex = /^[a-zA-Z\s]{3,50}$/; // Alphabetic with min/max length
+    const assignedToRegex = /^[a-zA-Z0-9\s]{3,30}$/; // Alphanumeric with min/max length
+    const today = new Date().toISOString().split("T")[0];
 
-  // log new errors to console
-  useEffect(() => {
-    if (error) {
-      console.log(error);
+    if (!name || !description || !dueDate || !assignedTo) {
+      return "All fields are required.";
     }
-  }, [error]);
+    if (!nameRegex.test(name)) {
+      return "Name must be 3-50 alphabetic characters.";
+    }
+    if (!assignedToRegex.test(assignedTo)) {
+      return "AssignedTo must be 3-30 alphanumeric characters.";
+    }
+    if (dueDate <= today) {
+      return "Due date must be in the future.";
+    }
+    if (description.length < 10 || description.length > 200) {
+      return "Description must be between 10-200 characters.";
+    }
 
-  // form validation is included in here
+    return ""; // No errors
+  };
+
+  // Form submit handler
   const handleSubmit = (e) => {
-    // necessary to prevent the page refreshing on submit
     e.preventDefault();
-    let valid = true;
+    const errorMsg = validateForm();
 
-    // save individual fields from the form data
-    const { name, description, dueDate, assignedTo, status } = formData;
-
-    // ADD ANY EXTRA VALIDATION HERE
-    // validate date to be after current date
-    // alpha numeric validation
-    // minimum and maximum lengths
-
-    // checks all fields have been filled
-    if (!name || !description || !dueDate || !assignedTo || !status) {
-      setError('All fields are required.');
-      valid = false;
+    if (errorMsg) {
+      setError(errorMsg);
+      return;
     }
 
-    // if form data is valid
-    if (valid) {
-      // Add a unique ID to the task
-      const newTask = { ...formData, id: Date.now() };
-      // Pass the task to the parent component
-      onAddTask(newTask);
+    // Add unique ID to the task
+    const newTask = { ...formData, id: Date.now() };
 
-      // Reset form: date defaults to date now, status defaults to in-progress
-      setFormData({
-        name: '',
-        description: '',
-        dueDate: '',
-        assignedTo: '',
-        status: 'in-progress',
-      });
-    }
+    // Pass task to the parent component
+    onAddTask(newTask);
+
+    // Reset form data
+    setFormData({
+      name: "",
+      description: "",
+      dueDate: "",
+      assignedTo: "",
+      status: "in-progress",
+    });
+
+    setError("");
   };
 
-  // What is actually retunred to be displayed ont he page
+  // JSX Render
   return (
-    <form ID='form' onSubmit={handleSubmit}>
+    <form id='form' onSubmit={handleSubmit}>
       <h3 className='form-header'>Add Task</h3>
       <div className='name'>
         <label htmlFor='name' className='form-label'>Task Name:</label>
