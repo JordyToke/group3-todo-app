@@ -1,6 +1,8 @@
 # <p align="center"><a href="https://jordytoke.com/group3-todo-app/" id="top">Group-3 Project: React Todo App </a></p>
 
-![GitHub last commit](https://img.shields.io/github/last-commit/jordyToke/group3-todo-app)
+![GitHub last commit](https://img.shields.io/github/last-commit/jordyToke/group3-todo-app)![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fjordytoke.com%2Fgroup3-todo-app%2F)
+
+
 
 ## <span style="color:yellow">Getting Started</span>
 
@@ -20,22 +22,22 @@ After cloning or pulling the repo if you have any immediate issues make sure to 
 
 ### Validate Form Inputs
 
-- [ ] Check that all fields are filled in before submission.
-- [ ] Show an error message if any field is empty or invalid (e.g., "Name cannot be empty").
-- [ ] When a new task is added, generate a unique ID for it (e.g., using Date.now() or an incrementing number).
+- [x] Check that all fields are filled in before submission.
+- [x] Show an error message if any field is empty or invalid (e.g., "Name cannot be empty").
+- [x] When a new task is added, generate a unique ID for it (e.g., using Date.now() or an incrementing number).
 
 ---
 
 ## Save Tasks
 
-- [ ] Store tasks as objects (e.g., { id, name, description, dueDate, assignedTo, status }) in an array.
-- [ ] Save this array in localStorage to keep tasks even when the page is refreshed.
+- [x] Store tasks as objects (e.g., { id, name, description, dueDate, assignedTo, status }) in an array.
+- [x] Save this array in localStorage to keep tasks even when the page is refreshed.
 
 ## Edit and Remove Tasks
 
-- [ ] Add buttons for Edit and Delete next to each task.
-- [ ] Edit: Allow the user to change task details in the form.
-- [ ] Delete: Remove the task from the array and update the display.
+- [x] Add buttons for Edit and Delete next to each task.
+- [x] Edit: Allow the user to change task details in the form.
+- [x] Delete: Remove the task from the array and update the display.
 
 ---
 
@@ -48,8 +50,8 @@ After cloning or pulling the repo if you have any immediate issues make sure to 
 
 ### Sort Tasks by Status
 
-- [ ] Add a button or dropdown to sort tasks by their status (in-progress, completed, review).
-- [ ] Rearrange the displayed tasks accordingly.
+- [x] Add a button or dropdown to sort tasks by their status (in-progress, completed, review).
+- [x] Rearrange the displayed tasks accordingly.
 
 ___
 

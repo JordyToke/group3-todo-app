@@ -82,77 +82,34 @@ function TaskForm({ onAddTask }) {
 
   // JSX Render
   return (
-    <form onSubmit={handleSubmit}>
-      <h3>Add Task</h3>
-      <div>
-        <label htmlFor="name" className="form-label">
-          Name:
-        </label>
-        <input
-          type="text"
-          name="name"
-          className="form-input"
-          id="name"
-          value={formData.name}
-          onChange={handleInputChange}
-        />
+    <form id='form' onSubmit={handleSubmit}>
+      <h3 className='form-header'>Add Task</h3>
+      <div className='name'>
+        <label htmlFor='name' className='form-label'>Task Name:</label>
+        <input type='text' name='name' className='form-input' id='name' value={formData.name} onChange={handleInputChange} />
       </div>
-      <div>
-        <label htmlFor="description" className="form-label">
-          Description:
-        </label>
-        <textarea
-          name="description"
-          className="form-input"
-          id="description"
-          value={formData.description}
-          onChange={handleInputChange}
-        />
+      <div className='description'>
+        <label htmlFor='description' className='form-label'>Description:</label>
+        <textarea type='text' name='description' className='form-input' id='description' value={formData.description} onChange={handleInputChange} />
       </div>
-      <div>
-        <label htmlFor="dueDate" className="form-label">
-          Due Date:
-        </label>
-        <input
-          type="date"
-          name="dueDate"
-          className="form-input"
-          id="dueDate"
-          value={formData.dueDate}
-          onChange={handleInputChange}
-        />
+      <div className='due-date'>
+        <label htmlFor='dueDate' className='form-label'>Due Date:</label>
+        <input type='date' name='dueDate' className='form-input' id='dueDate' value={formData.dueDate} onChange={handleInputChange} />
       </div>
-      <div>
-        <label htmlFor="assignedTo" className="form-label">
-          Assigned To:
-        </label>
-        <input
-          type="text"
-          name="assignedTo"
-          className="form-input"
-          id="assignedTo"
-          value={formData.assignedTo}
-          onChange={handleInputChange}
-        />
+      <div className='assigned-to'>
+        <label htmlFor='assignedTo' className='form-label'>Assigned To:</label>
+        <input type='text' name='assignedTo' className='form-input' id='assignedTo' value={formData.assignedTo} onChange={handleInputChange} />
       </div>
-      <div>
-        <label htmlFor="status" className="form-label">
-          Status:
-        </label>
-        <select
-          name="status"
-          className="form-input"
-          id="status"
-          value={formData.status}
-          onChange={handleInputChange}
-        >
-          <option value="in-progress">In-progress</option>
-          <option value="completed">Completed</option>
-          <option value="review">Review</option>
+      <div className='status'>
+        <label htmlFor='status' className='form-label'>Status:</label>
+        <select name='status' className='form-input' id='status' value={formData.status} onChange={handleInputChange}>
+          <option value='in-progress'>In-progress</option>
+          <option value='completed'>Completed</option>
+          <option value='review'>Review</option>
         </select>
       </div>
-      {error && <p className="error-message">{error}</p>}
-      <button type="submit">Add Task</button>
+      {error && <p className='error-message'>{error}</p>}
+      <button type='submit' className='submit-button'>Add Task</button>
     </form>
   );
 }
