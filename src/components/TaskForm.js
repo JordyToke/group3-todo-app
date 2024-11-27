@@ -81,11 +81,11 @@ function TaskForm({ onAddTask }) {
         <textarea type='text' name='description' className='form-input' id='description' value={formData.description} onChange={handleInputChange} />
       </div>
       <div className='due-date'>
-        <label htmlFor='dueDate' className='form-label'>DueDate:</label>
+        <label htmlFor='dueDate' className='form-label'>Due Date:</label>
         <input type='date' name='dueDate' className='form-input' id='dueDate' value={formData.dueDate} onChange={handleInputChange} />
       </div>
       <div className='assigned-to'>
-        <label htmlFor='assignedTo' className='form-label'>AssignedTo:</label>
+        <label htmlFor='assignedTo' className='form-label'>Assigned To:</label>
         <input type='text' name='assignedTo' className='form-input' id='assignedTo' value={formData.assignedTo} onChange={handleInputChange} />
       </div>
       <div className='status'>
