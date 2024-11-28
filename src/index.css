@@ -1,10 +1,8 @@
 :root {
-  margin-block-start: 0;
-  margin-block-end: 0;
-  margin-inline-start: 0;
-  margin-inline-end: 0;
+  margin: 0;
   font-family: "Inter", san-serif;
-  color: #8d8d8d;
+  --text-color: #8d8d8d;
+  color: var(--text-color);
 }
 
 body {
@@ -52,8 +50,7 @@ button:hover{
 
 
 /* FORM styling */
-
-#form {
+.form-card {
 
   background-color: white;
   box-shadow: 2px 2px gray;

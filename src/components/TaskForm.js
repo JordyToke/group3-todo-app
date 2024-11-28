@@ -82,7 +82,7 @@ function TaskForm({ onAddTask }) {
 
   // JSX Render
   return (
-    <form id='form' onSubmit={handleSubmit}>
+    <form class='form-card' onSubmit={handleSubmit}>
       <h3 className='form-header'>Add Task</h3>
       <div className='name'>
         <label htmlFor='name' className='form-label'>Task Name:</label>
