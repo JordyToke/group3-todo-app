@@ -13,11 +13,12 @@ export default function TaskCard({task, removeTask, onEdit }) {
       <button
         className='edit-button'
         onClick={() => {
-          const updatedTask = {
-            ...task,
-            name: prompt('Edit Task Name', task.name)
-          };
-          onEdit(updatedTask);
+          // const updatedTask = {
+          //   ...task,
+          //   name: prompt('Edit Task Name', task.name)
+          // };
+          console.log("Edit " + task.id);
+          onEdit(task.id);
         }}>
         Edit
       </button>

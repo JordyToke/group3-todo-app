@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 
-function TaskForm({ onAddTask }) {
+function TaskForm({ task, onAddTask }) {
   // Initialize formData with default values or from localStorage
-  const [formData, setFormData] = useState(
-    JSON.parse(localStorage.getItem("formData")) || {
+  const [formData, setFormData] = useState(task ||
+    JSON.parse(localStorage.getItem(`formData`)) || {
       name: "",
       description: "",
       dueDate: "",
       assignedTo: "",
       status: "in-progress",
+      id: Date.now(),
     }
   );
 
@@ -16,7 +17,7 @@ function TaskForm({ onAddTask }) {
 
   // Save formData to localStorage on change
   useEffect(() => {
-    localStorage.setItem("formData", JSON.stringify(formData));
+    localStorage.setItem(`formData${formData.id}`, JSON.stringify(formData));
   }, [formData]);
 
   // Input change handler
@@ -62,8 +63,11 @@ function TaskForm({ onAddTask }) {
       return;
     }
 
-    // Add unique ID to the task
-    const newTask = { ...formData, id: Date.now() };
+    // Create new Task and add unique ID if none exists
+    const newTask = { ...formData };
+    if (!formData.id) {
+      newTask = { ...newTask, id: Date.now() }
+    }
 
     // Pass task to the parent component
     onAddTask(newTask);
@@ -83,7 +87,7 @@ function TaskForm({ onAddTask }) {
   // JSX Render
   return (
     <form className='form card' onSubmit={handleSubmit}>
-      <h3 className='form-header'>Add Task</h3>
+      <h3 className='form-header'>{formData.id ? "Edit Task" : "Add Task"}</h3>
       <div className='name'>
         <label htmlFor='name' className='form-label'>Task Name:</label>
         <input type='text' name='name' className='form-input' id='name' value={formData.name} onChange={handleInputChange} />

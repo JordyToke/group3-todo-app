@@ -10,6 +10,8 @@ function App() {
     JSON.parse(localStorage.getItem("tasks")) || []
   );
   const [sorted, setSorted] = useState(null);
+  // keep track of which task is being edited at document level
+  const [editableTaskId, setEditableTaskId] = useState("");
 
   // Save tasks to localStorage whenever they change
   useEffect(
@@ -30,6 +32,8 @@ function App() {
     setTasks(
       tasks.map((task) => (task.id === updatedTask.id ? updatedTask : task))
     );
+    localStorage.removeItem(`formData${updatedTask.id}`);
+    setEditableTaskId("");
     setSorted(null)
   };
 
@@ -97,7 +101,7 @@ function App() {
         </Helmet>
       </HelmetProvider>
       <TaskForm onAddTask={addTask} />
-      <TaskList tasks={tasks} onEdit={handleEdit} removeTask={removeTask} sort={handleSort}/>
+      <TaskList tasks={tasks} editableTask={editableTaskId} editTask={handleEdit} onEditable={setEditableTaskId} removeTask={removeTask} sort={handleSort} />
     </div>
   );
 }
