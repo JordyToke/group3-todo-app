@@ -19,7 +19,7 @@ function TaskList({ tasks, removeTask, onEdit, sort }) {
       }
       {
         tasks.length === 0 ? <p>No tasks added yet.</p> : tasks.map((task) => (
-            <TaskCard key={task.id} task={task} />
+            <TaskCard key={task.id} task={task} onEdit={onEdit} />
           )
         )
       }

@@ -17,17 +17,7 @@ code {
     monospace;
 }
 
-h1, h3 {
-  size: 28pt;
-}
-
-
-h4 {
-  size: 24pt;
-  color: black;
-}
-
-p{
+p {
   color: black;
 }
 
