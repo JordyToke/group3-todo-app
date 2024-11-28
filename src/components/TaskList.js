@@ -1,50 +1,28 @@
-import React from "react";
+import React from 'react';
+import TaskForm from './TaskForm';
+import TaskCard from './TaskCard';
 
 // TaskList takes "tasks" prop
 function TaskList({ tasks, removeTask, onEdit, sort }) {
+  
 
   // returned TaskList JSX element
   return (
-    <div className="task-list">
-      {/* <h3>Task List</h3> */}
-      {tasks.length > 1 && (<button className="sort" onClick={() => sort("status")}>Sort by status</button>)}
-      {/* Ternary => if there are tasks in the task list display "No tasks added yet." else map tasks to list of JSX  */}
-      {tasks.length === 0 ? (
-        <p>No tasks added yet.</p>
-      ) : (
-        tasks.map((task) => (
-          <div key={task.id} className="task-card">
-             {/* Delete button currently does nothing-Tristan is updating this part */}
-            <button className="delete-button" onClick={function(){(window.confirm(`Are you sure you want to remove ${task.name}`)) && removeTask(task.id)}}>Delete</button>
-            <button
-              className="edit-button"
-
-              onClick={() => {
-                const updatedTask = {
-                  ...task,
-                  name: prompt("Edit Task Name", task.name),
-                };
-                onEdit(updatedTask);
-              }}
-            >
-              Edit
-            </button>
-            <h4 className='list-label'>{task.name}</h4>
-            <p className='list-label'>
-              <strong>Description:</strong> {task.description}
-            </p>
-            <p className="due-date">
-              <strong>Due Date:</strong> {task.dueDate}
-            </p>
-            <p className="assigned-to">
-              <strong>Assigned:</strong> {task.assignedTo}
-            </p>
-            <p className="status">
-              <strong>Status:</strong> {task.status}
-            </p>
-          </div>
-        ))
-      )}
+    <div className='card-list'>
+      <h3>Task List</h3>
+      {
+        tasks.length > 1 && (
+          <button className='sort' onClick={() => sort('status')}>
+            Sort by status
+          </button>
+        )
+      }
+      {
+        tasks.length === 0 ? <p>No tasks added yet.</p> : tasks.map((task) => (
+            <TaskCard key={task.id} task={task} />
+          )
+        )
+      }
     </div>
   );
 }
