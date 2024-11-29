@@ -28,7 +28,7 @@ button {
   background-color: #4b98eb;
   border: none;
   border-radius: 6px;
-  padding: 0 24px;
+  padding: 0 12px;
   align-self: end;
 }
 
@@ -52,6 +52,29 @@ button:hover{
   grid-template-columns: 1fr;
   grid-auto-rows: 1fr;
   gap: 1rem;
+  grid-template-areas: 
+  "Header Header Header Header"
+  "Body Body Body Body"
+  "Details Details Details Details"
+  "Footer Footer Footer Footer";
+}
+
+.title {
+  grid-area: Header;
+}
+
+.description {
+  grid-area: Body;
+}
+
+.fields {
+  display: flex;
+  justify-content: space-between;
+}
+
+.details {
+  grid-area: Details;
+  
 }
 
 /* FORM styling */
@@ -64,33 +87,3 @@ button:hover{
   gap: 2rem;
   margin-top: 2rem;
 }
-
-.list-label {
-  font-weight: bold;
-}
-
-.list-description {
-  grid-area: list-description;
-}
-
-.list-duedate {
-  grid-area: list-duedate;
-}
-
-.list-assigned {
-  grid-area: list-assigned;
-}
-
-.list-status {
-  grid-area: list-status;
-}
-
-.edit-button {
-  grid-area: edit-button;
-}
-
-.delete-button {
-  grid-area: delete-button;
-  /* color: red; */
-}
-
